@@ -5,20 +5,20 @@
 The documentation is about how to contribute to the libcmemman project.
 
 ## Chapters
-**[1 Build](#11-build)**
-[1.1 Development Environment](#11-development-environment)
-[1.2 Testing](#12-testing)
-**[2 Adding Contents](#2-adding-contents)**
-[2.1 Adding Types](#21-adding-types)
-[2.2 Adding Associated Methods](#22-adding-associated-methods)
-**[3 Naming](#3-naming)**
-[3.1 Methods (Functions), Variables and Fields](#31-methods-functions-variables-and-fields)
-[3.2 Types](#32-types)
-[3.3 Associated Methods](#33-associated-methods)
-**[4 Documentation](#4-documentation)**
-[4.1 Documentation for Types](#41-documentation-for-types)
-[4.2 Documentation for Associated Methods](#42-documetnation-for-associated-methods)
-**[5 `git commit` Messages](#5-git-commit-messages)**
+**[1 Build](#11-build)**  
+[1.1 Development Environment](#11-development-environment)  
+[1.2 Testing](#12-testing)  
+**[2 Adding Contents](#2-adding-contents)**  
+[2.1 Adding Types](#21-adding-types)  
+[2.2 Adding Associated Methods](#22-adding-associated-methods)  
+**[3 Naming](#3-naming)**  
+[3.1 Methods (Functions), Variables and Fields](#31-methods-functions-variables-and-fields)  
+[3.2 Types](#32-types)  
+[3.3 Associated Methods](#33-associated-methods)  
+**[4 Documentation](#4-documentation)**  
+[4.1 Documentation for Types](#41-documentation-for-types)  
+[4.2 Documentation for Associated Methods](#42-documetnation-for-associated-methods)  
+**[5 `git commit` Messages](#5-git-commit-messages)**  
 
 ## 1 Build
 
