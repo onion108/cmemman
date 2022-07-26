@@ -54,7 +54,7 @@ int main() {
 }
 ```
 
-At the first line, we use `make_pool()` to create a memory pool. And we enter a **scope** in the second line. A **scope** is a part of code. Any memory allocated inside the scope using `mp_malloc` will be freed after exiting the scope. Now the scope looks like this:
+At first, we use `make_pool()` to create a memory pool. And we enter a **scope** in the second line. A **scope** is a part of code. Any memory allocated inside the scope using `mp_malloc` will be freed after exiting the scope. Now the scope looks like this:
 ```
  /
  |
