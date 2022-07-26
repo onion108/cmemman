@@ -54,8 +54,13 @@ void mp_borrow_out(mempool_t*, void*);
 void mp_borrow_in(mempool_t*, void*);
 ```
 [Learn More >](mp_borrow_in.md)
-#### Memory Allocating
+#### Memory Allocation
 ```C
 void *mp_malloc(mempool_t*, size_t);
 ```
 [Learn More >](mp_malloc.md)
+
+```C
+void *mp_malloc_outest(mempool_t*, size_t);
+```
+[Learn More >](mp_malloc_outest.md)

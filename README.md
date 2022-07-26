@@ -171,11 +171,11 @@ As you see, this library is highly incomplete. The library only has little featu
 
 Here are a list of features that we are planning.
 
-[x] `mempool_t` & Scopes
-[ ] Long-Term Scopes (Which didn't store in a stack like ordinary scopes)
-[ ] Freeing
-[ ] Unsafe Methods (`mp_unsafe_remove_ptr()`, `mp_unsafe_add_ptr`, etc.)
-[ ] Auto destructure invoking when exiting scope.
+- [x] `mempool_t` & Scopes
+- [ ] Long-Term Scopes (Which didn't store in a stack like ordinary scopes)
+- [ ] Freeing
+- [ ] Unsafe Methods (`mp_unsafe_remove_ptr()`, `mp_unsafe_add_ptr`, etc.)
+- [ ] Auto destructure invoking when exiting scope.
 
 ## Documentation
 [Click Here](doc/Overview.md)
