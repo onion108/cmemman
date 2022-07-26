@@ -50,4 +50,9 @@ void mp_exit_scope(mempool_t*);
  */
 void *mp_malloc(mempool_t*, size_t);
 
+/**
+ * Allocate a block of memory to the scope #1.
+ */
+void *mp_malloc_outest(mempool_t*, size_t);
+
 #endif /* CC551FE8_D82A_487A_94B6_BB6D1175E56F */

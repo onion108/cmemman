@@ -107,8 +107,24 @@ void mp_borrow_in(SELF, void *ptr) {
 }
 
 void *mp_malloc(SELF, size_t size) {
+    if (self->scope_depth == 0) {
+        fprintf(stderr, "libcmemman: fatal: trying to allocate memory without enterning any scope.");
+        destroy_pool(self);
+        exit(-1);
+    }
     void *result = malloc(size);
     prv_mp_add_ptr_to_scope(self, self->scope_depth-1, result);
+    return result;
+}
+
+void *mp_malloc_outest(SELF, size_t size) {
+    if (self->scope_depth == 0) {
+        fprintf(stderr, "libcmemman: fatal: trying to allocate memory without enterning any scope.");
+        destroy_pool(self);
+        exit(-1);
+    }
+    void *result = malloc(size);
+    prv_mp_add_ptr_to_scope(self, 0, result);
     return result;
 }
 
