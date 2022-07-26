@@ -16,3 +16,5 @@ Allocate a block of memory and store it into the outest scope, i.e., scope `#1`.
 ### Return Value
 The pointer of allocated memory.
 
+### See Also
+[`mp_malloc`](mp_malloc.md)

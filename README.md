@@ -54,7 +54,7 @@ int main() {
 }
 ```
 
-At the first line, we use `make_pool()` to create a memory pool. And we enter a **scope** in the second line. A **scope** is a part of code. Any memory allocated inside the scope using `mp_malloc` will be freed after exiting the scope. Now the scope looks like this:
+At first, we use `make_pool()` to create a memory pool. And we enter a **scope** in the second line. A **scope** is a part of code. Any memory allocated inside the scope using `mp_malloc` will be freed after exiting the scope. Now the scope looks like this:
 ```
  /
  |
@@ -175,7 +175,7 @@ Here are a list of features that we are planning.
 - [ ] Long-Term Scopes (Which didn't store in a stack like ordinary scopes)
 - [ ] Freeing
 - [ ] Unsafe Methods (`mp_unsafe_remove_ptr()`, `mp_unsafe_add_ptr`, etc.)
-- [ ] Auto destructure invoking when exiting scope.
+- [x] Auto destructor invoking when exiting scope.
 
 ## Documentation
 [Click Here](doc/Overview.md)

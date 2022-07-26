@@ -3,8 +3,15 @@
 
 #include <stdlib.h>
 
+typedef void (*destructor_t)(void *);
+
+typedef struct _ptr_info {
+    void *ptr;
+    destructor_t destructor;
+} ptr_info_t;
+
 typedef struct _memory_pool {
-    void ***ptr_pool;
+    ptr_info_t **ptr_pool;
     int scope_depth;
 } mempool_t;
 
@@ -32,6 +39,7 @@ void mp_enter_scope(mempool_t*);
  * @param ptr The pointer to borrow out.
  */
 void mp_borrow_out(mempool_t*, void*);
+
 /**
  * Borrow in the pointer of the previous scope.
  * @param pool The pool.
@@ -54,5 +62,10 @@ void *mp_malloc(mempool_t*, size_t);
  * Allocate a block of memory to the scope #1.
  */
 void *mp_malloc_outest(mempool_t*, size_t);
+
+/**
+ * Register a destructor for the given pointer. Notice that the pointer must be in the current scope.
+ */
+void mp_register_destructor(mempool_t*, void*, destructor_t);
 
 #endif /* CC551FE8_D82A_487A_94B6_BB6D1175E56F */
