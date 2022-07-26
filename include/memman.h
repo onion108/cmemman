@@ -39,6 +39,7 @@ void mp_enter_scope(mempool_t*);
  * @param ptr The pointer to borrow out.
  */
 void mp_borrow_out(mempool_t*, void*);
+
 /**
  * Borrow in the pointer of the previous scope.
  * @param pool The pool.
