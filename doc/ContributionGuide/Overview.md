@@ -98,7 +98,7 @@ For constructors and destructors, they should be named in the format of `make_xx
 ## 4 Documentation
 
 ### 4.1 Documentation for types
-To add a documentation for a type, first you should create a new directory in the `doc/` directory with a short name for the type in `BigPascalCase`. Create a markdown file in this directory and name it as the `${DirectoryName}.md` (where `${DirectoryName}` is the name of the directory you just created). This markdown file is called the **Entry Documentation**. And then add the link to the main documentation of your type to the `doc/Overview.md`. The link should be in the section *Structures*. And then, fill in the main documentation with the following template.
+To add a documentation for a type, first you should create a new directory in the `doc/` directory with a short name for the type in `BigPascalCase`. Create a markdown file in this directory and name it as the `${DirectoryName}.md` (where `${DirectoryName}` is the name of the directory you just created). This markdown file is called the **Entry Documentation**. And then add the link to the main documentation of your type to the `doc/Overview.md`. The link should be in the section *Types*. And then, fill in the main documentation with the following template.
 ```markdown
 [< Overview](../Overview.md)
 

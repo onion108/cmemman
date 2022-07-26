@@ -16,3 +16,5 @@ Allocate a block of memory and store it into the pool of current scope.
 ### Return Value
 The pointer of allocated memory.
 
+### See Also
+[`mp_malloc_outest`](./mp_malloc_outest.md)

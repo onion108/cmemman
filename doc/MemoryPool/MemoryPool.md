@@ -5,14 +5,14 @@
 ### Definition
 ```C
 typedef struct _memory_pool {
-    void ***ptr_pool;
+    ptr_info_t **ptr_pool;
     int scope_depth;
 } mempool_t;
 ```
 
 ### Members
 ```C
-void ***ptr_pool;
+ptr_info_t **ptr_pool;
 ```
 The pool that stores pointers.
 
@@ -64,3 +64,10 @@ void *mp_malloc(mempool_t*, size_t);
 void *mp_malloc_outest(mempool_t*, size_t);
 ```
 [Learn More >](mp_malloc_outest.md)
+
+#### Destructor Registering
+
+```C
+void mp_register_destructor(mempool_t*, void*, destructor_t);
+```
+[Learn More >](mp_register_destructor.md)
