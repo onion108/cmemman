@@ -89,7 +89,7 @@ And after that, we enter a new scope:
  |     \
  \
 ```
-And we allocated some blockes of memory and stored it into `b`, `c`, `d`.
+And we allocated some blocks of memory and stored it into `b`, `c`, `d`.
 ```
  /
  |     /
@@ -164,7 +164,7 @@ And copy out the `libcmemman.a` and all the files inside the directory `include/
 > You can also compile the library by yourself or just copy all the sources into your project. In this case, you can enable the debug feature by defining the macro `__DEBUG__` while compiling the library so you can see when the scope exits and how many memories has been freed.
 
 ## Plans & Contribution
-As you see, this library is highly incomplete. The library only has little features now but we hope it will be more and more powerful one day. So if you want to contribute this project, you can fork it and then make a pull request. We are looking forwards for your contributing.
+As you see, this library is highly incomplete. The library only has little features now, but we hope it will be more and more powerful one day. So if you want to contribute this project, you can fork it and then make a pull request. We are looking forwards for your contributing.
 
 > ### Note
 > Before you contributing, please read the **[Contribution Guide](doc/ContributionGuide/Overview.md)** carefully, or your pull request may be rejected.
