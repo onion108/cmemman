@@ -176,6 +176,7 @@ Here are a list of features that we are planning.
 - [ ] Freeing
 - [ ] Unsafe Methods (`mp_unsafe_remove_ptr()`, `mp_unsafe_add_ptr`, etc.)
 - [x] Auto destructor invoking when exiting scope.
+- [ ] Thread safety
 
 ## Documentation
 [Click Here](doc/Overview.md)
