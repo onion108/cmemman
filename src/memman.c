@@ -57,12 +57,12 @@ int prv_mp_get_size_of_scope(SELF, int scope_id) {
     return c;
 }
 
-void prv_mp_add_ptr_to_scope(SELF, int scope_id, void* ptr) {
+void prv_mp_add_ptr_to_scope(SELF, int scope_id, void* ptr, destructor_t dtor) {
     // Add pointer to the scope.
     int len = prv_mp_get_size_of_scope(self, scope_id); 
     self->ptr_pool[scope_id] = (ptr_info_t*)realloc(self->ptr_pool[scope_id], (len + 2) * sizeof(ptr_info_t));
     self->ptr_pool[scope_id][len].ptr = ptr;
-    self->ptr_pool[scope_id][len].destructor = NULL;
+    self->ptr_pool[scope_id][len].destructor = dtor;
     self->ptr_pool[scope_id][len+1].ptr = NULL;
 }
 
@@ -77,6 +77,17 @@ int prv_mp_get_index_of_ptr(SELF, int scope_id, void *ptr) {
 
     // If cannot find it, return -1.
     return -1;
+}
+
+destructor_t prv_get_destructor_of_ptr(SELF, int scope_id, void* ptr) {
+    // Find the index of the pointer
+    int idx = prv_mp_get_index_of_ptr(self, scope_id, ptr);
+    if (idx == -1) {
+        fprintf(stderr, "libmemman: warning: trying to get info of the pointer (%p) that doesn't exist in scope %d", ptr, scope_id);
+        return NULL;
+    }
+    
+    return self->ptr_pool[scope_id][idx].destructor;
 }
 
 void prv_mp_remove_ptr_from_scope(SELF, int scope_id, void* ptr) {
@@ -103,9 +114,10 @@ void mp_borrow_out(SELF, void* ptr) {
         return;
     }
     void *p = ptr;
+    destructor_t dtor = prv_get_destructor_of_ptr(self, self->scope_depth-1, p);
     // Borrow it out
     prv_mp_remove_ptr_from_scope(self, self->scope_depth-1, p);
-    prv_mp_add_ptr_to_scope(self, self->scope_depth-2, p);
+    prv_mp_add_ptr_to_scope(self, self->scope_depth-2, p, dtor);
 }
 
 void mp_exit_scope(SELF) {
@@ -139,9 +151,10 @@ void mp_borrow_in(SELF, void *ptr) {
         return;
     }
     void *p = ptr;
+    destructor_t dtor = prv_get_destructor_of_ptr(self, self->scope_depth-2, p);
     // Borrow it in
     prv_mp_remove_ptr_from_scope(self, self->scope_depth-2, p);
-    prv_mp_add_ptr_to_scope(self, self->scope_depth-1, p);
+    prv_mp_add_ptr_to_scope(self, self->scope_depth-1, p, dtor);
 }
 
 void *mp_malloc(SELF, size_t size) {
@@ -156,7 +169,7 @@ void *mp_malloc(SELF, size_t size) {
         // If failed, just return NULL and do nothing because we needn't to register NULL.
         return NULL;
     }
-    prv_mp_add_ptr_to_scope(self, self->scope_depth-1, result);
+    prv_mp_add_ptr_to_scope(self, self->scope_depth-1, result, NULL);
     return result;
 }
 
@@ -171,7 +184,7 @@ void *mp_malloc_outest(SELF, size_t size) {
         // Failed, no need to register
         return NULL;
     }
-    prv_mp_add_ptr_to_scope(self, 0, result);
+    prv_mp_add_ptr_to_scope(self, 0, result, NULL);
     return result;
 }
 
